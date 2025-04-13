@@ -6,6 +6,9 @@ const usuario = document.getElementById("usuario");
 const senha = document.getElementById("senha");
 const select = document.getElementById("select");
 const boton = document.getElementById("boton");
+const boton2 = document.getElementById("boton2");
+const novoBotao = document.createElement("button");
+
 
 
 function digitarUsuario() {
@@ -45,6 +48,13 @@ switch (setor) {
     if (user === "98HR" && pass === "RH!@2025") {
       console.log("Bem vindo ao setor RH");
       divErro.innerHTML = "Bem vindo ao setor RH";
+      novoBotao.textContent = "Ver cargos e salários";
+      novoBotao.id = "boton";
+      boton2.appendChild(novoBotao);
+      novoBotao.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = "../cargos.html";
+      });
       divErro.classList.remove("erro");
       divErro.classList.add("confirm");
     } else {
