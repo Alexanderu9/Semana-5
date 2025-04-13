@@ -1,55 +1,77 @@
 const tipoDeSetor = ["comercial", "RH", "TI"];
 
-let setor = prompt("Digite seu setor (comercial, RH ou TI):");
 
-let comercial = tipoDeSetor[0];
-let RH = tipoDeSetor[1];
-let TI = tipoDeSetor[2];
+const divErro = document.getElementById("erro");
+const usuario = document.getElementById("usuario");
+const senha = document.getElementById("senha");
+const select = document.getElementById("select");
+const boton = document.getElementById("boton");
+
 
 function digitarUsuario() {
-  let usuario = prompt("Digite seu usuario?");
-  return usuario;
+  return usuario.value;
 }
 
 function digitarSenha() {
-  let senha = prompt("Digite sua senha?");
-  return senha;
+  return senha.value;
 }
 
+
+boton.addEventListener("click", (e) => {
+  e.preventDefault();
+  const setor = select.value;
+  const user = digitarUsuario();
+  const pass = digitarSenha();
+  
+ 
 switch (setor) {
   case "comercial":
-    let uComercial = digitarUsuario();
-    let sComercial = digitarSenha();
-    if (uComercial === "CMCL12" && sComercial === "Com&c1@l") {
+  
+    if (user === "CMCL12" && pass === "Com&c1@l") {
       console.log("Bem vindo ao setor comercial");
+      divErro.innerHTML = "Bem vindo ao setor comercial";
+      divErro.classList.remove("erro");
+      divErro.classList.add("confirm");
     } else {
-      console.log("Usuario ou senha invalidos");
+      divErro.innerHTML = "Usuario ou senha invalidos!!";
+      divErro.classList.remove("confirm");
+      divErro.classList.add("erro");
     }
 
     break;
 
   case "RH":
-    let uRH = digitarUsuario();
-    let sRH = digitarSenha();
-    if (uRH === "98HR" && sRH === "RH!@2025") {
+   
+    if (user === "98HR" && pass === "RH!@2025") {
       console.log("Bem vindo ao setor RH");
+      divErro.innerHTML = "Bem vindo ao setor RH";
+      divErro.classList.remove("erro");
+      divErro.classList.add("confirm");
     } else {
-      console.log("Usuario ou senha invalidos");
+      divErro.innerHTML = "Usuario ou senha invalidos!!";
+      divErro.classList.remove("confirm");
+      divErro.classList.add("erro");
     }
 
     break;
 
   case "TI":
-    let uTI = digitarUsuario();
-    let sTI = digitarSenha();
-    if (uTI === "DEV4567TI" && sTI === "IT&&||==2025") {
+    if (user === "DEV4567TI" && pass === "IT&&||==2025") {
       console.log("Bem vindo ao setor TI");
+      divErro.innerHTML = "Bem vindo ao setor TI";
+      divErro.classList.remove("erro");
+      divErro.classList.add("confirm");
     } else {
-      console.log("Usuario ou senha invalidos");
+      divErro.innerHTML = "Usuario ou senha invalidos!!";
+      divErro.classList.remove("confirm");
+      divErro.classList.add("erro");
     }
     break;
 
   default:
-    console.log("setor nao encontrado");
+    divErro.innerHTML = "setor nao encontrado";
+    console.log("Setor não encontrado!!");
+    divErro.classList.add("erro");
     break;
 }
+});

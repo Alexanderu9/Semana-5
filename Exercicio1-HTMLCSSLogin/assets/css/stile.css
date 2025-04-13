@@ -131,3 +131,29 @@ body {
     margin: 0 auto;
 
 }
+
+#erro {
+    display: flex;
+    place-content: center;
+    background-color: red;
+    margin: 20px auto;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.confirm {
+    display: flex;
+    place-content: center;
+    background-color: green;
+    margin: 20px auto;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#erro.erro {
+  background-color: red;
+}
+
+#erro.confirm {
+  background-color: green;
+}
