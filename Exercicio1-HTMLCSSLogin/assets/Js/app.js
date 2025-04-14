@@ -32,9 +32,16 @@ switch (setor) {
   
     if (user === "CMCL12" && pass === "Com&c1@l") {
       console.log("Bem vindo ao setor comercial");
+      novoBotao.textContent = "Produtos em venda";
+      novoBotao.id = "boton";
+      boton2.appendChild(novoBotao);
+      novoBotao.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = "../setorComercial.html";
       divErro.innerHTML = "Bem vindo ao setor comercial";
       divErro.classList.remove("erro");
       divErro.classList.add("confirm");
+      });
     } else {
       divErro.innerHTML = "Usuario ou senha invalidos!!";
       divErro.classList.remove("confirm");
