@@ -11,13 +11,17 @@ const novoBotao = document.createElement("button");
 
 
 
+
+
+
+
 function digitarUsuario() {
   return usuario.value;
-}
+};
 
 function digitarSenha() {
   return senha.value;
-}
+};
 
 
 boton.addEventListener("click", (e) => {
@@ -26,7 +30,7 @@ boton.addEventListener("click", (e) => {
   const user = digitarUsuario();
   const pass = digitarSenha();
   
- 
+
 switch (setor) {
   case "comercial":
   
@@ -76,8 +80,15 @@ switch (setor) {
     if (user === "DEV4567TI" && pass === "IT&&||==2025") {
       console.log("Bem vindo ao setor TI");
       divErro.innerHTML = "Bem vindo ao setor TI";
+      novoBotao.textContent = "conversões";
+      novoBotao.id = "boton";
+      boton2.appendChild(novoBotao);
+      novoBotao.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = "../ti.html";
       divErro.classList.remove("erro");
       divErro.classList.add("confirm");
+    });
     } else {
       divErro.innerHTML = "Usuario ou senha invalidos!!";
       divErro.classList.remove("confirm");
@@ -92,3 +103,5 @@ switch (setor) {
     break;
 }
 });
+
+
